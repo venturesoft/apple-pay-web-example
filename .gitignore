@@ -1,6 +1,8 @@
-node_modules
-.env
-server/resources/*.csr
-server/resources/*.key
-server/resources/*.pem
-server/resources/*.cer
+backend/.env
+backend/server/resources/*.csr
+backend/server/resources/*.key
+backend/server/resources/*.pem
+backend/server/resources/*.cer
+nginx/*.csr
+nginx/*.key
+nginx/*.crt
