@@ -1,8 +1,9 @@
 backend/.env
-backend/server/resources/*.csr
-backend/server/resources/*.key
-backend/server/resources/*.pem
-backend/server/resources/*.cer
+backend/npm-debug.log
+backend/resources/*.csr
+backend/resources/*.key
+backend/resources/*.pem
+backend/resources/*.cer
 nginx/*.csr
 nginx/*.key
 nginx/*.crt
