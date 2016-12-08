@@ -1,12 +1,14 @@
 # Apple Pay on the Web example
 
-Demo for Apple Pay for the Web.
+## Pre Requisites
 
-See <https://lab.tridnguyen.com/apple-pay-web-example/> on Safari on iOS 10 or macOS Sierra
+Mac OS Siera
+
+Docker for Mac
+
+An Apple Pay enabled device, see <https://support.apple.com/en-gb/KM207105>
 
 ## Set up
-
-If you'd like to have your own instance of this running, follow the steps below:
 
 1. Create an Apple Developer Account (at <https://developer.apple.com>)
 2. Create a Merchant ID (see [Configuring Your Environment](https://developer.apple.com/library/ios/ApplePay_Guide/Configuration.html))
@@ -28,5 +30,5 @@ If you'd like to have your own instance of this running, follow the steps below:
 10. Start the application
 
 	```sh
-	npm start
+docker-compose build && docker-compose up
 	```
