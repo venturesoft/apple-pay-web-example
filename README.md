@@ -2,11 +2,11 @@
 
 ## Pre Requisites
 
-Mac OS Siera
-
-Docker for Mac
+A server running Docker
 
 An Apple Pay enabled device, see <https://support.apple.com/en-gb/KM207105>
+
+A Sandbox test account, see <https://developer.apple.com/support/apple-pay-sandbox/>
 
 ## Set up
 

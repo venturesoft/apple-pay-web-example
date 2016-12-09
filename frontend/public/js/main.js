@@ -85,7 +85,7 @@ function createPaymentRequestApplePay (product) {
 	return {
 		countryCode: 'GB', // The merchant’s two-letter ISO 3166 country code.
 		currencyCode: currencyCode, // The three-letter ISO 4217 currency code for the payment.
-		supportedNetworks: ['amex', 'discover', 'masterCard', 'privateLabel', 'visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
+		supportedNetworks: ['amex', 'discover', 'jcb', 'masterCard', 'privateLabel', 'visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
 		merchantCapabilities: ['supports3DS'], //																								*If you include jcb it doesn't work!
 		total: {
 			label: 'Apple Pay Web Example',
@@ -251,21 +251,21 @@ jQuery(document).ready(function ($) {
 			}
 			e.preventDefault();
 
-			//var merchantIdentifier = 'merchant.com.loopbackdomain';
-			//var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
-			//promise.then(function (canMakePayments) {
+			var merchantIdentifier = 'merchant.com.loopbackdomain';
+			var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+			promise.then(function (canMakePayments) {
 
 					console.log("1.0.1a");
 
-					//if (!canMakePayments) {
-					//		alert("no active card :(");
-					//		return;
-					//}
+					if (!canMakePayments) {
+							alert("no active card :(");
+							return;
+					}
 
-					//if (canMakePayments) {
-					//		alert("yay, active card :)");
-					//		return;
-					//}
+					if (canMakePayments) {
+							alert("yay, active card :)");
+							return;
+					}
 
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
