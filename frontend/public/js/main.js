@@ -242,6 +242,10 @@ function shippingOptionChange (request, details, event) {
 }
 
 jQuery(document).ready(function ($) {
+
+	alert("start");
+
+
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
 		button.addEventListener('click', function (e) {
@@ -255,17 +259,15 @@ jQuery(document).ready(function ($) {
 			var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
 			promise.then(function (canMakePayments) {
 
-					console.log("1.0.1a");
-
 					if (!canMakePayments) {
 							alert("no active card :(");
 							return;
 					}
 
-					// if (canMakePayments) {
-					// 		alert("yay, active card :)");
-					// 		return;
-					// }
+					if (canMakePayments) {
+							alert("yay, active card :)");
+							return;
+					}
 
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
