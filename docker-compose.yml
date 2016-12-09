@@ -13,7 +13,7 @@ services:
      - "./frontend/public:/www/data"
      - "./frontend/conf:/etc/nginx/conf.d"
      - "~/private/loopbackdomain_com/ssl:/etc/ssl"
-     - "~/private/loopbackdomain_com/.well-known:/www/data/.well-known"
+     - "~/private/loopbackdomain_com/well-known:/www/data/.well-known"
 
   backend:
     build: backend
