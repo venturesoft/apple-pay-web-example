@@ -11,7 +11,7 @@ if (window.ApplePaySession) {
 	};
 }
 
-var currencyCode = 'USD';
+var currencyCode = 'GBP';
 var totalLabel = 'Total';
 
 var shippingMethods = [{
@@ -83,7 +83,7 @@ function getProductDetails (productNode) {
 
 function createPaymentRequestApplePay (product) {
 	return {
-		countryCode: 'US',
+		countryCode: 'GB',
 		currencyCode: currencyCode,
 		supportedNetworks: ['amex', 'visa', 'masterCard', 'discover'],
 		merchantCapabilities: ['supports3DS'],
@@ -249,30 +249,49 @@ jQuery(document).ready(function ($) {
 	Array.prototype.forEach.call(applePayButtons, function (button) {
 		button.addEventListener('click', function (e) {
 			if (!window.ApplePaySession) {
+				alert("environment does not support apple pay");
 				return;
 			}
 			e.preventDefault();
-			var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
-			var session = new ApplePaySession(1, request);
-			session.onvalidatemerchant = function (event) {
-				validateMerchant(session, event);
-			}
-			session.onpaymentauthorized = function (event) {
-				paymentAuthorized(session, request, event);
-			}
-			session.onshippingcontactselected = function (event) {
-				request = shippingContactSelected(session, request, event);
-			}
-			session.onpaymentmethodselected = function (event) {
-				paymentMethodSelected(session, request, event);
-			}
-			session.onshippingmethodselected = function (event) {
-				request = shippingMethodSelected(session, request, event);
-			}
-			session.oncancel = function () {
-				cancel(session);
-			}
-			session.begin();
+
+			var merchantIdentifier = 'merchant.com.loopbackdomain';
+			var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+			promise.then(function (canMakePayments) {
+
+					if (!canMakePayments) {
+							alert("no active card :(");
+							return;
+					}
+
+					if (canMakePayments) {
+							alert("yay, active card :)");
+							return;
+					}
+
+					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
+					var session = new ApplePaySession(1, request);
+					session.onvalidatemerchant = function (event) {
+						validateMerchant(session, event);
+					}
+					session.onpaymentauthorized = function (event) {
+						paymentAuthorized(session, request, event);
+					}
+					session.onshippingcontactselected = function (event) {
+						request = shippingContactSelected(session, request, event);
+					}
+					session.onpaymentmethodselected = function (event) {
+						paymentMethodSelected(session, request, event);
+					}
+					session.onshippingmethodselected = function (event) {
+						request = shippingMethodSelected(session, request, event);
+					}
+					session.oncancel = function () {
+						cancel(session);
+					}
+					session.begin();
+
+			});
+
 		});
 	});
 	var buyNowButtons = document.querySelectorAll('.buy-now');

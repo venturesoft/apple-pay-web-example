@@ -20,15 +20,16 @@ An Apple Pay enabled device, see <https://support.apple.com/en-gb/KM207105>
 	openssl req -sha256 -nodes -newkey rsa:2048 -keyout applepaytls.key -out applepaytls.csr
 	```
 6. Upload the `applepaytls.csr` file to the File Upload in the Apple Developer portal.
-7. Store the `applepaytls.key` file to the `server/resources` directory.
+7. Store the `applepaytls.key` file to the `backend/resources` directory.
 8. With the `merchant_id.cer` file received from Apple, run the following command to generate a `.pem` file.
 
 	```sh
 	openssl x509 -inform der -in merchant_id.cer -out applepaytls.pem
 	```
-9. Store the `applepaytls.pem` file to the `server/resources` directory.
+9. Store the `applepaytls.pem` file to the `backend/resources` directory.
 10. Start the application
 
 	```sh
+git clone https://github.com/venturesoft/apple-pay-web-example && cd apple-pay-web-example
 docker-compose build && docker-compose up
 	```
