@@ -1,4 +1,5 @@
 .aws
+.env
 backend/.env
 backend/npm-debug.log
 backend/server/resources/*

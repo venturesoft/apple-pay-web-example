@@ -31,6 +31,6 @@ A Sandbox test account, see <https://developer.apple.com/support/apple-pay-sandb
 
 	```sh
 git clone https://github.com/venturesoft/apple-pay-web-example && cd apple-pay-web-example
-export PRIVATE_DIR=~/private
+printf 'PRIVATE_DIR=%s\n' /home/user/private > .env
 docker-compose build && docker-compose up
 	```
