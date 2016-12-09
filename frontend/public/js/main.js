@@ -262,10 +262,10 @@ jQuery(document).ready(function ($) {
 							return;
 					}
 
-					if (canMakePayments) {
-							alert("yay, active card :)");
-							return;
-					}
+					// if (canMakePayments) {
+					// 		alert("yay, active card :)");
+					// 		return;
+					// }
 
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
