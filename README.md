@@ -31,5 +31,6 @@ An Apple Pay enabled device, see <https://support.apple.com/en-gb/KM207105>
 
 	```sh
 git clone https://github.com/venturesoft/apple-pay-web-example && cd apple-pay-web-example
+export PRIVATE_DIR=~/private
 docker-compose build && docker-compose up
 	```

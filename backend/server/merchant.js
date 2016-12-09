@@ -6,7 +6,6 @@ var certFilePath = path.resolve(__dirname, './resources/applepaytls.pem');
 var keyFilePath = path.resolve(__dirname, './resources/applepaytls.key');
 
 exports.validate = validate;
-exports.register = register;
 
 function validate (req, res) {
 	if (!req.body.validationURL) {
@@ -16,9 +15,9 @@ function validate (req, res) {
 		url: req.body.validationURL,
 		json: true,
 		body: {
-			merchantIdentifier: process.env.MERCHANT_ID,
-			displayName: process.env.MERCHANT_NAME,
-			domainName: process.env.MERCHANT_DOMAIN
+			merchantIdentifier: "merchant.com.loopbackdomain",
+			displayName: "Development",
+			domainName: "loopbackdomain.com"
 		},
 		cert: fs.readFileSync(certFilePath),
 		key: fs.readFileSync(keyFilePath)
@@ -35,28 +34,5 @@ function validate (req, res) {
 		}
 		debug('Session validation received.');
 		res.json(body);
-	});
-}
-
-function register(req, res) {
-	request.post({
-		url: process.env.MERCHANT_REGISTER_URL,
-		json: true,
-		body: {
-			domainNames: [process.env.MERCHANT_DOMAIN],
-			partnerMerchantName: process.env.MERCHANT_NAME,
-			partnerInternalMerchantIdentifier: process.env.MERCHANT_ID,
-			encryptTo: process.env.MERCHANT_ID
-		},
-		cert: fs.readFileSync(certFilePath),
-		key: fs.readFileSync(keyFilePath)
-	}, function (err, resp, body) {
-		if (err) {
-			console.error(err);
-			return;
-		}
-		res.json({
-			status: 'OK'
-		});
 	});
 }
