@@ -1,9 +1,5 @@
+.aws
 backend/.env
 backend/npm-debug.log
-backend/resources/*.csr
-backend/resources/*.key
-backend/resources/*.pem
-backend/resources/*.cer
-nginx/*.csr
-nginx/*.key
-nginx/*.crt
+backend/server/resources/*
+frontend/public/.well-known/*
