@@ -243,8 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("start");
-
+	alert("running version 0.0.1");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
@@ -261,11 +260,6 @@ jQuery(document).ready(function ($) {
 
 					if (!canMakePayments) {
 							alert("no active card :(");
-							return;
-					}
-
-					if (canMakePayments) {
-							alert("yay, active card :)");
 							return;
 					}
 
