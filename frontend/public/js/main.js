@@ -155,7 +155,7 @@ function shippingMethodSelected (session, request, event) {
 }
 
 function cancel (session, event) {
-	console.log(event);
+	alert("cancel event :" + JSON.stringify(event));
 }
 
 function createPaymentRequest (product) {
@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161210a");
+	alert("running version 20161210b");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
