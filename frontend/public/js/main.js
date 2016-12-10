@@ -85,8 +85,8 @@ function createPaymentRequestApplePay (product) {
 	return {
 		countryCode: 'GB', // The merchant’s two-letter ISO 3166 country code.
 		currencyCode: currencyCode, // The three-letter ISO 4217 currency code for the payment.
-		supportedNetworks: ['amex', 'discover', 'jcb', 'masterCard', 'privateLabel', 'visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
-		merchantCapabilities: ['supports3DS'], //																								*If you include jcb it doesn't work!
+		supportedNetworks: ['jcb'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
+		merchantCapabilities: ['supports3DS'],
 		total: {
 			label: 'Apple Pay Web Example',
 			amount: product.amount
@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 0.0.1");
+	alert("running version 0.0.2");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
