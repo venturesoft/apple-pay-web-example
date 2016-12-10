@@ -11,7 +11,7 @@ if (window.ApplePaySession) {
 	};
 }
 
-var currencyCode = 'USD'; //'GBP';
+var currencyCode = 'GBP';
 var totalLabel = 'Total';
 
 var shippingMethods = [{
@@ -83,9 +83,9 @@ function getProductDetails (productNode) {
 
 function createPaymentRequestApplePay (product) {
 	return {
-		countryCode: 'US', //'GB', // The merchant’s two-letter ISO 3166 country code.
+		countryCode: 'GB', // The merchant’s two-letter ISO 3166 country code.
 		currencyCode: currencyCode, // The three-letter ISO 4217 currency code for the payment.
-		supportedNetworks: ['visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
+		supportedNetworks: ['amex','visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
 		merchantCapabilities: ['supports3DS'],
 		total: {
 			label: 'Apple Pay Web Example',
