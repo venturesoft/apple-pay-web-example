@@ -85,7 +85,7 @@ function createPaymentRequestApplePay (product) {
 	return {
 		countryCode: 'GB', // The merchant’s two-letter ISO 3166 country code.
 		currencyCode: currencyCode, // The three-letter ISO 4217 currency code for the payment.
-		supportedNetworks: ['amex','visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
+		supportedNetworks: ['amex','masterCard', 'privateLabel', 'visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
 		merchantCapabilities: ['supports3DS'],
 		total: {
 			label: 'Apple Pay Web Example',
@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161210b");
+	alert("running version 20161210c");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
@@ -255,13 +255,13 @@ jQuery(document).ready(function ($) {
 			e.preventDefault();
 
 			var merchantIdentifier = 'merchant.com.loopbackdomain';
-			var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
-			promise.then(function (canMakePayments) {
+			//var promise = ApplePaySession.canMakePaymentsWithActiveCard(merchantIdentifier);
+			//promise.then(function (canMakePayments) {
 
-					if (!canMakePayments) {
-							alert("no active card :(");
-							return;
-					}
+				//	if (!canMakePayments) {
+				//			alert("no active card :(");
+				//			return;
+				//	}
 
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
@@ -285,7 +285,7 @@ jQuery(document).ready(function ($) {
 					}
 					session.begin();
 
-			});
+			//});
 
 		});
 	});
