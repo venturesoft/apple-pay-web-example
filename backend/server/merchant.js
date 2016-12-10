@@ -33,6 +33,9 @@ function validate (req, res) {
 			return;
 		}
 		debug('Session validation received.');
+		// Apple returns a payload with `displayName`, but passing this
+		// to `completeMerchantValidation` causes it to error.
+		delete body.displayName;
 		res.json(body);
 	});
 }
