@@ -98,10 +98,10 @@ function validateMerchant (session, event) {
 	postJson('merchant-validate', {
 		validationURL: event.validationURL
 	}).then(function (response) {
-		console.log(JSON.stringify(response));
+		alert(JSON.stringify(response));
 		session.completeMerchantValidation(response);
 	}, function (status) {
-		console.log(JSON.stringify(status));
+		alert(JSON.stringify(status));
 		session.abort();
 	});
 }
@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161210d");
+	alert("running version 20161210e");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
@@ -266,7 +266,7 @@ jQuery(document).ready(function ($) {
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
 					session.onvalidatemerchant = function (event) {
-						alert("validating merchant...");
+						alert("validating merchant " + event.validationURL);
 						validateMerchant(session, event);
 					}
 					session.onpaymentauthorized = function (event) {
