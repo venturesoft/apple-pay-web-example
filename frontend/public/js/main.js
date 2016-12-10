@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161210c");
+	alert("running version 20161210d");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
@@ -266,6 +266,7 @@ jQuery(document).ready(function ($) {
 					var request = createPaymentRequestApplePay(getProductDetails(e.target.parentNode.parentNode));
 					var session = new ApplePaySession(1, request);
 					session.onvalidatemerchant = function (event) {
+						alert("validating merchant...");
 						validateMerchant(session, event);
 					}
 					session.onpaymentauthorized = function (event) {
