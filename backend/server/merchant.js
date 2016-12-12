@@ -2,7 +2,7 @@ var debug = require('debug')('apple-pay');
 var request = require('request');
 var fs = require('fs');
 var path = require('path');
-var certFilePath = path.resolve(__dirname, './resources/applepaytls.pem');
+var certFilePath = path.resolve(__dirname, './resources/merchant_id.pem');
 var keyFilePath = path.resolve(__dirname, './resources/applepaytls.key');
 
 exports.validate = validate;
@@ -36,7 +36,7 @@ function validate (req, res) {
 		debug('Session validation received.');
 		// Apple returns a payload with `displayName`, but passing this
 		// to `completeMerchantValidation` causes it to error.
-		delete body.displayName;
+		// delete body.displayName;
 		res.json(body);
 	});
 }
