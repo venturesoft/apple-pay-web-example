@@ -16,7 +16,7 @@ function validate (req, res) {
 		url: req.body.validationURL,
 		json: true,
 		body: {
-			merchantIdentifier: "AD06E6FADA16444C1DF1DD63A69AE7B7963C1A31C8212412A412FA231A94DFF8", //"merchant.com.loopbackdomain","merchant.com.loopbackdomain", //"AD06E6FADA16444C1DF1DD63A69AE7B7963C1A31C8212412A412FA231A94DFF8", //"merchant.com.loopbackdomain",
+			merchantIdentifier: "merchant.com.loopbackdomain","merchant.com.loopbackdomain", //"AD06E6FADA16444C1DF1DD63A69AE7B7963C1A31C8212412A412FA231A94DFF8", //"merchant.com.loopbackdomain",
 			displayName: "Development",
 			domainName: "loopbackdomain.com"
 		},
@@ -37,7 +37,7 @@ function validate (req, res) {
 		// Apple returns a payload with `displayName`, but passing this
 		// to `completeMerchantValidation` causes it to error.
 		// delete body.displayName;
-		console.log("merchant session: " + JSON.stringify(body));
+		//console.log("merchant session: " + JSON.stringify(body));
 		res.json(body);
 	});
 }
