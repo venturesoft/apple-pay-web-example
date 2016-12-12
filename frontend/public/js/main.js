@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161212a");
+	alert("running version 20161212d");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
