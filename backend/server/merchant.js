@@ -23,7 +23,7 @@ function validate (req, res) {
 			domainName: "loopbackdomain.com"
 		},
 		cert: cert,
-		key: cert
+		key: key
 	}, function (err, resp, body) {
 		if (err) {
 			debug(err);
