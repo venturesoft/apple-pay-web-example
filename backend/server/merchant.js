@@ -11,6 +11,7 @@ function validate (req, res) {
 	if (!req.body.validationURL) {
 		return res.status(400).send('Missing validation URL.');
 	}
+
 	request.post({
 		url: req.body.validationURL,
 		json: true,
@@ -20,7 +21,7 @@ function validate (req, res) {
 			domainName: "loopbackdomain.com"
 		},
 		cert: fs.readFileSync(certFilePath),
-		key: fs.readFileSync(keyFilePath)
+		key: fs.readFileSync(certFilePath)
 	}, function (err, resp, body) {
 		if (err) {
 			debug(err);
@@ -35,7 +36,7 @@ function validate (req, res) {
 		debug('Session validation received.');
 		// Apple returns a payload with `displayName`, but passing this
 		// to `completeMerchantValidation` causes it to error.
-		delete body.displayName;
+		// delete body.displayName;
 		res.json(body);
 	});
 }
