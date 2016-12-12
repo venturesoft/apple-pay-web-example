@@ -2,10 +2,10 @@ var debug = require('debug')('apple-pay');
 var request = require('request');
 var fs = require('fs');
 var path = require('path');
-var certFilePath = path.resolve(__dirname, './resources/merchant_id.pem');
-//var keyFilePath = path.resolve(__dirname, './resources/merchant_id.key');
+var certFilePath = path.resolve(__dirname, './resources/merchant_id.cert.pem');
+var keyFilePath = path.resolve(__dirname, './resources/merchant_id.key');
 var cert = fs.readFileSync(certFilePath, 'utf8');
-var key = fs.readFileSync(certFilePath, 'utf8');
+var key = fs.readFileSync(keyFilePath, 'utf8');
 
 exports.validate = validate;
 
@@ -18,7 +18,7 @@ function validate (req, res) {
 		url: req.body.validationURL,
 		json: true,
 		body: {
-			merchantIdentifier: "merchant.com.loopbackdomain", //"AD06E6FADA16444C1DF1DD63A69AE7B7963C1A31C8212412A412FA231A94DFF8", 
+			merchantIdentifier: "merchant.com.loopbackdomain", //"AD06E6FADA16444C1DF1DD63A69AE7B7963C1A31C8212412A412FA231A94DFF8",
 			displayName: "Development",
 			domainName: "loopbackdomain.com"
 		},
