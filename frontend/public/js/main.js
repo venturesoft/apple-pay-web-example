@@ -11,7 +11,7 @@ if (window.ApplePaySession) {
 	};
 }
 
-var currencyCode = 'GBP';
+var currencyCode = 'USD'; // 'GBP';
 var totalLabel = 'Total';
 
 var shippingMethods = [{
@@ -83,7 +83,7 @@ function getProductDetails (productNode) {
 
 function createPaymentRequestApplePay (product) {
 	return {
-		countryCode: 'GB', // The merchant’s two-letter ISO 3166 country code.
+		countryCode: 'US', //'GB', // The merchant’s two-letter ISO 3166 country code.
 		currencyCode: currencyCode, // The three-letter ISO 4217 currency code for the payment.
 		supportedNetworks: ['amex','masterCard', 'privateLabel', 'visa'], // The payment networks supported by the merchant. The value must be one or more of amex, discover, jcb, masterCard, privateLabel, or visa.
 		merchantCapabilities: ['supports3DS'],
@@ -243,7 +243,7 @@ function shippingOptionChange (request, details, event) {
 
 jQuery(document).ready(function ($) {
 
-	alert("running version 20161212e");
+	alert("running version 20161212f");
 
 	var applePayButtons = document.querySelectorAll('.apple-pay');
 	Array.prototype.forEach.call(applePayButtons, function (button) {
