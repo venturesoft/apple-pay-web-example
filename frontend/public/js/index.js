@@ -84,8 +84,8 @@ function applePayButtonClicked() {
 		console.log("Validate merchant");
 		const validationURL = event.validationURL;
 		getApplePaySession(event.validationURL).then(function(response) {
-  			session.completeMerchantValidation(response);
 				alert(response);
+  			session.completeMerchantValidation(response);
 		});
 	};
 
