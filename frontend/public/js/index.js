@@ -86,6 +86,9 @@ function applePayButtonClicked() {
 		getApplePaySession(event.validationURL).then(function(response) {
 				alert(response);
   			session.completeMerchantValidation(response);
+		},
+		function(reject) {
+				alert(reject);
 		});
 	};
 
