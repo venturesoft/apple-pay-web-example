@@ -1,7 +1,7 @@
 /*
 Copyright (C) 2016 Apple Inc. All Rights Reserved.
 See LICENSE.txt for this sample’s licensing information
- 
+
 Abstract:
 The main client-side JS. Handles displaying the Apple Pay button and requesting a payment.
 */
@@ -10,7 +10,7 @@ The main client-side JS. Handles displaying the Apple Pay button and requesting 
 * This method is called when the page is loaded.
 * We use it to show the Apple Pay button as appropriate.
 * Here we're using the ApplePaySession.canMakePayments() method,
-* which performs a basic hardware check. 
+* which performs a basic hardware check.
 *
 * If we wanted more fine-grained control, we could use
 * ApplePaySession.canMakePaymentsWithActiveCards() instead.
@@ -39,8 +39,8 @@ function showApplePayButton() {
 */
 function applePayButtonClicked() {
 	const paymentRequest = {
-		countryCode: 'US',
-		currencyCode: 'USD',
+		countryCode: 'GB',
+		currencyCode: 'GBP',
 		shippingMethods: [
 			{
 				label: 'Free Shipping',
@@ -68,14 +68,14 @@ function applePayButtonClicked() {
 			amount: '8.99',
 		},
 
-		supportedNetworks:[ 'amex', 'discover', 'masterCard', 'visa'],
+		supportedNetworks:[ 'amex', 'masterCard', 'visa'],
 		merchantCapabilities: [ 'supports3DS' ],
 
-		requiredShippingContactFields: [ 'postalAddress', 'email' ],
+		requiredShippingContactFields: [ ],
 	};
 
 	const session = new ApplePaySession(1, paymentRequest);
-	
+
 	/**
 	* Merchant Validation
 	* We call our merchant session endpoint, passing the URL to use
