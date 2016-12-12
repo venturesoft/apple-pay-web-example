@@ -10,7 +10,7 @@ var key = fs.readFileSync(keyFilePath, 'utf8');
 exports.validate = validate;
 
 function validate (req, res) {
-	if (!req.body.validationURL) {
+	if (!req.body.url) {
 		return res.status(400).send('Missing validation URL.');
 	}
 
