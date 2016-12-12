@@ -84,7 +84,7 @@ function applePayButtonClicked() {
 		console.log("Validate merchant");
 		const validationURL = event.validationURL;
 		getApplePaySession(event.validationURL).then(function(response) {
-				alert("response: " + JSON.stringify(response));
+				//alert("response: " + JSON.stringify(response));
   			session.completeMerchantValidation(response);
 		},
 		function(reject) {
@@ -132,7 +132,7 @@ function applePayButtonClicked() {
 		window.location.href = "/success.html";
 	}
 
-	alert("running version 20161212e");
+	alert("running version 20161212f");
 
 	// All our handlers are setup - start the Apple Pay payment
 	session.begin();
