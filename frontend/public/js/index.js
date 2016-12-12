@@ -71,7 +71,7 @@ function applePayButtonClicked() {
 		supportedNetworks:[ 'amex', 'masterCard', 'visa'],
 		merchantCapabilities: [ 'supports3DS' ],
 
-		requiredShippingContactFields: [ ],
+		requiredShippingContactFields: [ 'email' ],
 	};
 
 	const session = new ApplePaySession(1, paymentRequest);
@@ -131,6 +131,8 @@ function applePayButtonClicked() {
 		session.completePayment(ApplePaySession.STATUS_SUCCESS);
 		window.location.href = "/success.html";
 	}
+
+	alert("running version 20161212a");
 
 	// All our handlers are setup - start the Apple Pay payment
 	session.begin();
