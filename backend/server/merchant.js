@@ -2,7 +2,7 @@ var debug = require('debug')('apple-pay');
 var request = require('request');
 var fs = require('fs');
 var path = require('path');
-var certFilePath = path.resolve(__dirname, './resources/merchant_id.cert.pem');
+var certFilePath = path.resolve(__dirname, './resources/merchant_id.pem');
 var keyFilePath = path.resolve(__dirname, './resources/merchant_id.key');
 var cert = fs.readFileSync(certFilePath, 'utf8');
 var key = fs.readFileSync(keyFilePath, 'utf8');
@@ -23,7 +23,7 @@ function validate (req, res) {
 			domainName: "loopbackdomain.com"
 		},
 		cert: cert,
-		key: key
+		key: cert
 	}, function (err, resp, body) {
 		if (err) {
 			debug(err);
