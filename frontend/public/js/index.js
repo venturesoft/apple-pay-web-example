@@ -41,27 +41,6 @@ function applePayButtonClicked() {
 	const paymentRequest = {
 		countryCode: 'GB',
 		currencyCode: 'GBP',
-		shippingMethods: [
-			{
-				label: 'Free Shipping',
-				amount: '0.00',
-				identifier: 'free',
-				detail: 'Delivers in five business days',
-			},
-			{
-				label: 'Express Shipping',
-				amount: '5.00',
-				identifier: 'express',
-				detail: 'Delivers in two business days',
-			},
-		],
-
-		lineItems: [
-			{
-				label: 'Shipping',
-				amount: '0.00',
-			}
-		],
 
 		total: {
 			label: 'Apple Pay Example',
