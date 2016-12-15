@@ -78,22 +78,22 @@ function applePayButtonClicked() {
 	* which method was selected.
 	*/
 	session.onshippingmethodselected = (event) => {
-		const shippingCost = event.shippingMethod.identifier === 'free' ? '0.00' : '5.00';
-		const totalCost = event.shippingMethod.identifier === 'free' ? '8.99' : '13.99';
+		//const shippingCost = event.shippingMethod.identifier === 'free' ? '0.00' : '5.00';
+		//const totalCost = event.shippingMethod.identifier === 'free' ? '8.99' : '13.99';
 
-		const lineItems = [
-			{
-				label: 'Shipping',
-				amount: shippingCost,
-			},
-		];
+		//const lineItems = [
+		//	{
+		//		label: 'Shipping',
+		//		amount: shippingCost,
+		//	},
+		//];
 
 		const total = {
 			label: 'Apple Pay Example',
 			amount: totalCost,
 		};
 
-		session.completeShippingMethodSelection(ApplePaySession.STATUS_SUCCESS, total, lineItems);
+		//session.completeShippingMethodSelection(ApplePaySession.STATUS_SUCCESS, total, lineItems);
 	};
 
 	/**
@@ -111,7 +111,7 @@ function applePayButtonClicked() {
 		window.location.href = "/success.html";
 	}
 
-	alert("running version 20161212f");
+	alert("running version 20161214a");
 
 	// All our handlers are setup - start the Apple Pay payment
 	session.begin();
