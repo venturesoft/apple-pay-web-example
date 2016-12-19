@@ -20,4 +20,4 @@ services:
     entrypoint: ["npm", "start"]
     volumes:
       - "./backend:/src"
-      - "${PRIVATE_DIR}/loopbackdomain_com/applepay:/src/server/resources"
+      - "${PRIVATE_DIR}/applepay:/src/server/applepay"

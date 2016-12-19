@@ -2,7 +2,7 @@ var debug = require('debug')('apple-pay');
 var request = require('request');
 var fs = require('fs');
 var path = require('path');
-var certFilePath = path.resolve(__dirname, './resources/merchant.pem');
+var certFilePath = path.resolve(__dirname, './applepay/merchant.pem');
 var cert = fs.readFileSync(certFilePath, 'utf8');
 
 exports.validate = validate;
