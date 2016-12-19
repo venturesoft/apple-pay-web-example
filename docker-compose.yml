@@ -12,8 +12,8 @@ services:
    volumes:
      - "./frontend/public:/www/data"
      - "./frontend/conf/nginx:/etc/nginx/conf.d"
-     - "${PRIVATE_DIR}/loopbackdomain_com/ssl:/etc/ssl"
-     - "${PRIVATE_DIR}/loopbackdomain_com/well-known:/www/data/.well-known"
+     - "${PRIVATE_DIR}/ssl:/etc/ssl"
+     - "${PRIVATE_DIR}/verification:/www/data/.well-known"
 
   backend:
     build: backend
