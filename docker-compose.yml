@@ -17,9 +17,6 @@ services:
 
   backend:
     build: backend
-    ports:
-      - "3000:3000"
-      - "56745:56745"
     environment:
       NODE_ENV: "development"
     entrypoint: ["npm", "run", "debug"]
