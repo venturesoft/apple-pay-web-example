@@ -19,7 +19,7 @@ services:
     build: backend
     environment:
       NODE_ENV: "development"
-    entrypoint: ["npm", "run", "debug"]
+    entrypoint: ["npm", "start"]
     volumes:
       - "./backend:/src"
       - "${PRIVATE_DIR}/loopbackdomain_com/applepay:/src/server/resources"

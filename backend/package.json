@@ -8,7 +8,7 @@
   },
   "engines" : { "node" : ">=0.6" },
   "scripts": {
-    "debug": "nodemon --debug=56745 server/index.js"
+    "start": "nodemon ./app.js"
   },
   "keywords": [],
   "author": "",
