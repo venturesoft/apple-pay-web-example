@@ -2,5 +2,5 @@
 .env
 backend/.env
 backend/npm-debug.log
-backend/server/resources/*
+backend/server/applepay/*
 frontend/public/.well-known/*
