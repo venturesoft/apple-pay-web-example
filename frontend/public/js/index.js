@@ -111,7 +111,7 @@ function applePayButtonClicked() {
 		window.location.href = "/success.html";
 	}
 
-	alert("running version 20161219a");
+	alert("running version 20161219b");
 
 	// All our handlers are setup - start the Apple Pay payment
 	session.begin();

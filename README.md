@@ -31,6 +31,11 @@ A Sandbox test account, see <https://developer.apple.com/support/apple-pay-sandb
 
 	```sh
 git clone https://github.com/venturesoft/apple-pay-web-example && cd apple-pay-web-example
-printf 'PRIVATE_DIR=%s\n' /home/user/private > .env
+printf 'PRIVATE_DIR=%s\n' /home/user/private > .env && printf 'HTTP_PORT=%s\n' 80 >> .env && printf 'HTTP_PORT=%s\n' 443 >> .env
 docker-compose build && docker-compose up
 	```
+
+TODO
+Incorporate <https://github.com/tomdale/apple-pay-merchant-session-server>
+Need to import cert to login keychain (not system) to be able to export as p12
+openssl pkcs12 -in loopbackdomain.com.merchant_id.p12 -out loopbackdomain.com.merchant_id.pem -nodes -clcerts
