@@ -31,8 +31,7 @@ A Sandbox test account, see <https://developer.apple.com/support/apple-pay-sandb
 
 	```sh
 git clone https://github.com/venturesoft/apple-pay-web-example && cd apple-pay-web-example
-printf 'PRIVATE_DIR=%s\n' /home/user/private > .env && printf 'SERVER_NAME=%s\n' loopbackdomain.com >> .env
-printf 'HTTP_PORT=%s\n' 80 >> .env && printf 'HTTPS_PORT=%s\n' 443 >> .env
+printf 'PRIVATE_DIR=%s\n' /home/user/private > .env && printf 'HTTP_PORT=%s\n' 80 >> .env && printf 'HTTPS_PORT=%s\n' 443 >> .env
 docker-compose build && docker-compose up
 	```
 
